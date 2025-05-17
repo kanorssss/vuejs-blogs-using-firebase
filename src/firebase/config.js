@@ -1,5 +1,8 @@
-import firebase from "firebase/app";
+import { initializeApp, default as firebase } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite";
+
 import "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyB-7kY9Nu_GZR8VhHZ-7zLe8b6DaR4Uhpo",
   authDomain: "first-vue-js-firebase-project.firebaseapp.com",
@@ -10,7 +13,7 @@ const firebaseConfig = {
 };
 
 //initialize firebase
-firebase.initialize(firebaseConfig);
-//initialize firestore
-const projectFirestore = firebase.firestore();
-export { projectFirestore };
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export { db };
